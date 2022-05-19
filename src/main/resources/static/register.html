@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="signup-form" action="/api/user" method="POST">
+    <input type="hidden" />
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="userId" name="userId" type="text" class="validate"/>
+            <label for="userId">Username</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="name" name="name" type="text" class="validate"/>
+            <label for="name">Email</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="password" name="password" type="password" class="validate"/>
+            <label for="password">Password</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="avatar" name="avatar" type="text" class="validate"/>
+            <label for="avatar">avatar</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="introduction" name="introduction" type="text" class="validate"/>
+            <label for="introduction">introduction</label>
+        </div>
+    </div>
+    <input class="signup-btn waves-effect waves-light btn" type="submit" value="가입하기" />
+</form>
+</body>
+</html>
