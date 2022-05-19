@@ -3,8 +3,6 @@ package com.jsbird.jsblog.model.Entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -12,11 +10,11 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Users")
-public class User {
+@Table(name = "members")
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_idx", nullable = false)
+    @Column(name = "member_idx", nullable = false)
     private Integer idx;
 
     @Column(name = "id", nullable = false, length = 25)
@@ -33,4 +31,16 @@ public class User {
 
     @Column(name = "introduction", length = 300)
     private String introduction;
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "idx=" + idx +
+                ", userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", introduction='" + introduction + '\'' +
+                '}';
+    }
 }

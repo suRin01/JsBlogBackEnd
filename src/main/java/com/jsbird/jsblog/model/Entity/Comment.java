@@ -11,7 +11,7 @@ import java.time.Instant;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Comments")
+@Table(name = "comments")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +22,8 @@ public class Comment {
     @JoinColumn(name = "postIdx", nullable = false)
     private Post posts;
 
-    @Column(name = "commentIdx", nullable = false)
-    private Integer commentIdx;
+    @Column(name = "upper_comment_idx", nullable = false)
+    private Integer upperCommentIdx;
 
     @Column(name = "contents", nullable = false, length = 100)
     private String contents;
