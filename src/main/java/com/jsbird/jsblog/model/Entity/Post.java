@@ -16,7 +16,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_idx", nullable = false)
-    private Integer id;
+    private Integer idx;
 
     @Lob
     @Column(name = "title", nullable = false)
