@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "members")
 public class Member {
     @Id
@@ -32,15 +32,7 @@ public class Member {
     @Column(name = "introduction", length = 300)
     private String introduction;
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "idx=" + idx +
-                ", userId='" + userId + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", introduction='" + introduction + '\'' +
-                '}';
-    }
+    @Column(name = "authority", nullable = false)
+    private Integer authority;
+
 }
