@@ -8,7 +8,10 @@ import com.jsbird.jsblog.sevice.UserService;
 import com.jsbird.jsblog.utiliy.ApiUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Slf4j
@@ -21,6 +24,7 @@ public class UserController {
     //Create Single User
     @PostMapping("")
     public Response<?> createUser(Member member){
+        log.info(member.toString());
         try {
             if (userService.createUser(member)){
                 return ApiUtils.success();
@@ -62,6 +66,12 @@ public class UserController {
             log.error(e.getMessage());
         }
         return ApiUtils.error("Internal Error", 500);
+
+    }
+
+    @GetMapping("/me")
+    public Response<?> getMyUserInformation(HttpServletRequest request){
+        return ApiUtils.success(userService.getMyUserWithAuthorities());
 
     }
 

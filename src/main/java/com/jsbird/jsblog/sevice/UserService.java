@@ -3,12 +3,15 @@ package com.jsbird.jsblog.sevice;
 import com.jsbird.jsblog.exceptions.noRowSelected;
 import com.jsbird.jsblog.model.Entity.Member;
 import com.jsbird.jsblog.repositories.MemberRepository;
+import com.jsbird.jsblog.utiliy.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -38,6 +41,12 @@ public class UserService {
         else{
             throw new noRowSelected("There is no existing user on id="+userId);
         }
+    }
+
+    public Member getMyUserWithAuthorities() {
+        String userId = SecurityUtil.getCurrentUsername().orElse("");
+        return memberRepository.findByUserId(userId).get(0);
+
     }
 
     public Member findSingleUserByIdx(Integer userIdx) throws noRowSelected{
