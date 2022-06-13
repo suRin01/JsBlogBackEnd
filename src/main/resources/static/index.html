@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css"
+      media="screen"
+    />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+    <meta charset="UTF-8" />
+    <title>Lecture System</title>
+    <style>
+      html {
+        margin: 0px;
+        padding: 0px;
+      }
+      div {
+        outline: 1px solid black;
+      }
+      nav {
+        height: 100px;
+        width: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #topbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 100px;
+        margin-bottom: 100px;
+      }
+
+      #topbar #logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #topbar #logo img {
+        width: 150px;
+      }
+      #topbar div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #topbar div form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      #topbar form input[type="text"] {
+        width: 500px;
+        height: 30px;
+      }
+      #login button {
+        width: 100px;
+        height: 50px;
+        background-color: greenyellow;
+        color: black;
+        border: 0px;
+      }
+      #main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      #advertise {
+        width: 300px;
+        height: 700px;
+      }
+      #articles {
+        width: 700px;
+        height: 700px;
+      }
+      #topList {
+        width: 300px;
+        height: 700px;
+      }
+
+      .gallery {
+        width: 700px;
+        height: 700px;
+        background: #eee;
+      }
+
+      .gallery-cell {
+        width: 80%;
+        height: 100%;
+        margin-right: 10px;
+        background: #8c8;
+        counter-increment: gallery-cell;
+      }
+
+      /* cell number */
+      .gallery-cell:before {
+        display: block;
+        text-align: center;
+        content: counter(gallery-cell);
+        line-height: 200px;
+        font-size: 80px;
+        color: white;
+      }
+    </style>
+  </head>
+  <nav>event bar here</nav>
+  <body>
+    <div id="topbar">
+      <div id="logo">
+        <img
+          src="https://cdn.inflearn.com/public/files/pages/da35da48-52a5-4ec6-b8d3-0389a47610ec/logo1.png"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <div id="search">
+        <div>
+          <form action="/search">
+            <input type="text" name="searchstring" id="searchInput" />
+            <input type="submit" value="검색" />
+          </form>
+        </div>
+      </div>
+      <div id="login">
+        <div>
+          <button onclick="location.href='/login'">로그인</button>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <div id="advertise">
+        <img src="./img/advertiseSample.png" alt="" srcset="" />
+      </div>
+      <div id="articles">
+        <div
+          class="gallery js-flickity"
+          data-flickity-options='{ "wrapAround": true }'
+        >
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+          <div class="gallery-cell"></div>
+        </div>
+      </div>
+      <div id="topList">top 10 list</div>
+    </div>
+  </body>
+  <footer>site description here</footer>
+</html>
